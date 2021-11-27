@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import { useRouter } from "next/dist/client/router";
 import { format } from "date-fns";
 import InfoCard from "../components/InfoCard";
+import Map from "../components/Map";
 
 export default function Search({ searchResults }) {
   const router = useRouter();
@@ -16,7 +17,7 @@ export default function Search({ searchResults }) {
     <div>
       <Header placeholder={`${location} | ${range} | ${noOfGuests} guests`} />
       <main className="flex">
-        <section className=" flex-grow pt-14 px-6">
+        <section className=" flex-grow pt-14 px-6 ">
           <p className="text-xs ">
             300+ Stays - {range} - for {noOfGuests} guests
           </p>
@@ -48,6 +49,9 @@ export default function Search({ searchResults }) {
               )
             )}
           </div>
+        </section>
+        <section className="hidden xl:inline-flex  xl:min-w-[600px]">
+          <Map searchResults={searchResults} />
         </section>
       </main>
       <Footer />
